@@ -76,7 +76,7 @@ struct DetailScreen: View {
                         .fontWeight(.bold)
                         .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 0))
                     
-                    Text(game.releaseDate)
+                    Text(formatDate(releaseDate: game.releaseDate))
                         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
                 }
                 
@@ -96,31 +96,27 @@ struct DetailScreen: View {
         }
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    private func formatDate(releaseDate: String) -> String {
+        let fromString = DateFormatter()
+        fromString.dateFormat = "yyyy-MM-dd"
+        
+        let toDate = DateFormatter()
+        toDate.dateFormat = "MMMM dd, yyyy"
+        
+        if let date = fromString.date(from: releaseDate) {
+            return toDate.string(from: date)
+        } else {
+            print("There was an error decoding the string")
+            return ""
+        }
+    }
 }
 
 struct DetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DetailScreen(game: Game(ids: 3498, title: "Grand Theft Auto V",
-                                    releaseDate: "2013-09-17",
-                                    backgroundImage:
-                                        "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg",
-                                    rating: 4.48, playtime: 69,
-                                    genres: [Genre(ids: 4, name: "Action"),
-                                             Genre(ids: 3, name: "Adventure")], screenshots: [
-                                                Screenshot(ids: 1, image:
-                                                            "https://media.rawg.io/media/"
-                                                            +
-                                                            "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
-                                                Screenshot(ids: 2, image:
-                                                            "https://media.rawg.io/media/"
-                                                            +
-                                                            "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
-                                                Screenshot(ids: 3, image:
-                                                            "https://media.rawg.io/media/"
-                                                            +
-                                                            "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg")
-                                             ]))
+            DetailScreen(game: Game.example)
         }
     }
 }

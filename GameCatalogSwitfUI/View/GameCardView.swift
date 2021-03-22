@@ -38,7 +38,7 @@ struct GameCardView: View {
                 
                 Spacer(minLength: 0)
                 
-                Text(game.releaseDate)
+                Text("\(formatDate(releaseDate: game.releaseDate))")
                     .padding(.vertical, 10)
                     .padding(.horizontal, 25)
                     .background(Color.primary.opacity(0.1))
@@ -49,5 +49,20 @@ struct GameCardView: View {
         .frame(height: 330)
         .background(Color.white.opacity(0.1))
         .cornerRadius(25)
+    }
+    
+    private func formatDate(releaseDate: String) -> String {
+        let fromString = DateFormatter()
+        fromString.dateFormat = "yyyy-MM-dd"
+        
+        let toDate = DateFormatter()
+        toDate.dateFormat = "MMM dd, yyyy"
+        
+        if let date = fromString.date(from: releaseDate) {
+            return toDate.string(from: date)
+        } else {
+            print("There was an error decoding the string")
+            return ""
+        }
     }
 }

@@ -22,9 +22,13 @@ struct GameScreen: View {
                 .cornerRadius(25)
                 .navigationTitle("Game Catalog")
                 .toolbar {
-                    NavigationLink(destination: AboutScreen()) {
-                        Image(systemName: "person.circle")
-                            .font(.largeTitle)
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: AboutScreen()) {
+                            Button(action: { }, label: {
+                                Image(systemName: "person.circle")
+                                    .font(.largeTitle)
+                            })
+                        }
                     }
                 }
             } else {
@@ -41,9 +45,13 @@ struct GameScreen: View {
                 }
                 .navigationBarTitle("Game Catalog")
                 .toolbar {
-                    NavigationLink(destination: AboutScreen()) {
-                        Image(systemName: "person.circle")
-                            .font(.largeTitle)
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: AboutScreen()) {
+                            Button(action: { }, label: {
+                                Image(systemName: "person.circle")
+                                    .font(.largeTitle)
+                            })
+                        }
                     }
                 }
             }

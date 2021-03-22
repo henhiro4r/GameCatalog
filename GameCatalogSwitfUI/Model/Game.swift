@@ -27,4 +27,30 @@ struct Game: Codable {
         case genres
         case screenshots = "short_screenshots"
     }
+    
+    #if DEBUG
+    static let example = Game(ids: 3498, title: "Grand Theft Auto V",
+                              releaseDate: "2013-09-17",
+                              backgroundImage:
+                                "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg",
+                              rating: 4.48, playtime: 69,
+                              genres: [
+                                Genre(ids: 4, name: "Action"),
+                                Genre(ids: 3, name: "Adventure")
+                              ], screenshots: [
+                                    Screenshot(ids: 1, image:
+                                                "https://media.rawg.io/media/"
+                                                +
+                                                "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
+                                    Screenshot(ids: 2, image:
+                                                "https://media.rawg.io/media/"
+                                                +
+                                                "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
+                                    Screenshot(ids: 3, image:
+                                                "https://media.rawg.io/media/"
+                                                +
+                                                "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg")
+                                ]
+    )
+    #endif
 }
