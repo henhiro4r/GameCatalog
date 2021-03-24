@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		149182EF2609A6CF0077BF58 /* FavoriteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149182EE2609A6CF0077BF58 /* FavoriteScreen.swift */; };
 		14A8F4D12607231600B12B70 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8F4D02607231600B12B70 /* LoadingIndicator.swift */; };
 		14A8F4D526073B7B00B12B70 /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8F4D426073B7B00B12B70 /* AboutScreen.swift */; };
 		14A8F4D8260744EF00B12B70 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8F4D7260744EF00B12B70 /* DetailScreen.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		149182EE2609A6CF0077BF58 /* FavoriteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreen.swift; sourceTree = "<group>"; };
 		14A8F4D02607231600B12B70 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		14A8F4D426073B7B00B12B70 /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
 		14A8F4D7260744EF00B12B70 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 				14E56FED260375B8002D8AA7 /* View */,
 				14E56FEC2603759E002D8AA7 /* Model */,
 				14E56FDC260371C2002D8AA7 /* GameCatalogSwitfUIApp.swift */,
-				14E56FDE260371C2002D8AA7 /* ContentView.swift */,
 				14E56FE0260371C3002D8AA7 /* Assets.xcassets */,
 				14E56FE5260371C3002D8AA7 /* Info.plist */,
 				14E56FE2260371C3002D8AA7 /* Preview Content */,
@@ -112,10 +113,12 @@
 		14E56FED260375B8002D8AA7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14E56FDE260371C2002D8AA7 /* ContentView.swift */,
 				14E56FFC2604DFCE002D8AA7 /* GameCardView.swift */,
 				14B29C002606106A0082B11F /* GameScreen.swift */,
 				14A8F4D426073B7B00B12B70 /* AboutScreen.swift */,
 				14A8F4D7260744EF00B12B70 /* DetailScreen.swift */,
+				149182EE2609A6CF0077BF58 /* FavoriteScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B29C012606106A0082B11F /* GameScreen.swift in Sources */,
+				149182EF2609A6CF0077BF58 /* FavoriteScreen.swift in Sources */,
 				14E56FFD2604DFCE002D8AA7 /* GameCardView.swift in Sources */,
 				14E570092604FE5F002D8AA7 /* Screenshot.swift in Sources */,
 				14E570032604F955002D8AA7 /* Game.swift in Sources */,

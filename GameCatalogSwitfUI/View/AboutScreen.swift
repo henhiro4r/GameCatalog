@@ -24,9 +24,15 @@ struct AboutScreen: View {
                 Text("David Lie")
                     .font(.largeTitle)
             }
+            
+            Spacer()
+            
         }
         .navigationTitle("About")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            EditButton()
+        }
     }
 }
 
