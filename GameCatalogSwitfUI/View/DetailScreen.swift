@@ -17,7 +17,9 @@ struct DetailScreen: View {
             VStack(alignment: .leading) {
                 WebImage(url: URL(string: game.backgroundImage))
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .indicator(Indicator.progress)
+                    .transition(.fade(duration: 0.8))
+                    .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: 250)
                 
                 HStack {
@@ -61,7 +63,9 @@ struct DetailScreen: View {
                         ForEach(game.screenshots, id: \.ids) { screenshot in
                             WebImage(url: URL(string: screenshot.image))
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
+                                .indicator(Indicator.progress)
+                                .transition(.fade(duration: 0.8))
+                                .scaledToFill()
                                 .frame(width: 300, height: 200)
                                 .cornerRadius(25)
                                 .padding()
