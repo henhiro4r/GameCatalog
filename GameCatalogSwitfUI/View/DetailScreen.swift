@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct DetailScreen: View {
     @State var game: Game
+    @State private var showAlertDialog = false
     
     var body: some View {
         ScrollView {
@@ -25,9 +26,7 @@ struct DetailScreen: View {
                             .font(.headline)
                             .fontWeight(.bold)
                         
-                        Text(game.genres
-                                .map { $0.name }
-                                .joined(separator: " | "))
+                        Text(game.genreJoined)
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
@@ -76,7 +75,7 @@ struct DetailScreen: View {
                         .fontWeight(.bold)
                         .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 0))
                     
-                    Text(formatDate(releaseDate: game.releaseDate))
+                    Text(game.releaseDateLong)
                         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
                 }
                 
@@ -95,28 +94,29 @@ struct DetailScreen: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    private func formatDate(releaseDate: String) -> String {
-        let fromString = DateFormatter()
-        fromString.dateFormat = "yyyy-MM-dd"
-        
-        let toDate = DateFormatter()
-        toDate.dateFormat = "MMMM dd, yyyy"
-        
-        if let date = fromString.date(from: releaseDate) {
-            return toDate.string(from: date)
-        } else {
-            print("There was an error decoding the string")
-            return ""
+        .navigationBarItems(
+            trailing:
+                Button(action: {
+                    self.showAlertDialog = true
+                }) {
+                    Image(systemName: "heart")
+                        .foregroundColor(.red)
+                }
+        )
+        .alert(isPresented: $showAlertDialog) {
+            Alert(title: Text("Are you sure want to " +
+                                "delete \(game.title) from favorite?"),
+                  primaryButton: .cancel(Text("Cancel")),
+                  secondaryButton: .destructive(Text("Delete"),
+                                                action: { }))
         }
     }
-}
-
-struct DetailScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            DetailScreen(game: Game.example)
+    
+    struct DetailScreen_Previews: PreviewProvider {
+        static var previews: some View {
+            Group {
+                DetailScreen(game: Game.example)
+            }
         }
     }
 }

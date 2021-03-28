@@ -30,9 +30,6 @@ struct AboutScreen: View {
         }
         .navigationTitle("About")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            EditButton()
-        }
     }
 }
 

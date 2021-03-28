@@ -10,12 +10,24 @@ import Foundation
 struct Game: Codable {
     let ids: Int
     let title: String
-    let releaseDate: String
+    let releaseDate: String?
     let backgroundImage: String
     let rating: Double
     let playtime: Int
-    let genres: [Genre]
+    var genres: [Genre]?
     let screenshots: [Screenshot]
+    
+    var genreJoined: String {
+        mapGenreToString()
+    }
+    
+    var releaseDateShort: String {
+        getDateString(format: "short")
+    }
+    
+    var releaseDateLong: String {
+        getDateString(format: "long")
+    }
     
     enum CodingKeys: String, CodingKey {
         case ids = "id"
@@ -26,6 +38,39 @@ struct Game: Codable {
         case playtime
         case genres
         case screenshots = "short_screenshots"
+    }
+    
+    private func mapGenreToString() -> String {
+        if let genres = genres {
+            return genres.map { $0.name }
+                .joined(separator: " | ")
+        } else {
+            return "-"
+        }
+    }
+    
+    private func getDateString(format: String) -> String {
+        if let releaseDate = releaseDate {
+            let fromString = DateFormatter()
+            fromString.dateFormat = "yyyy-MM-dd"
+            
+            let toDate = DateFormatter()
+            
+            if format == "short" {
+                toDate.dateFormat = "MMM dd, yyyy"
+            } else {
+                toDate.dateFormat = "MMMM dd, yyyy"
+            }
+            
+            if let date = fromString.date(from: releaseDate) {
+                return toDate.string(from: date)
+            } else {
+                print("There was an error decoding the string")
+                return ""
+            }
+        } else {
+            return "-"
+        }
     }
     
     #if DEBUG
