@@ -74,7 +74,7 @@ struct Game: Codable {
     }
     
     #if DEBUG
-    static let example = Game(ids: 3498, title: "Grand Theft Auto V",
+    static let examples = Game(ids: 3498, title: "Grand Theft Auto V",
                               releaseDate: "2013-09-17",
                               backgroundImage:
                                 "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg",
