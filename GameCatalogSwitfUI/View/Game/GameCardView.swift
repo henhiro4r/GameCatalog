@@ -46,4 +46,12 @@ struct GameCardView: View {
         .background(Color.white.opacity(0.1))
         .cornerRadius(25)
     }
+    
+    struct GameCardView_Previews: PreviewProvider {
+        static var previews: some View {
+            Group {
+                GameCardView(game: Game.example)
+            }
+        }
+    }
 }

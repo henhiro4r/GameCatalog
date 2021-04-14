@@ -82,20 +82,21 @@ struct Game: Codable {
                               genres: [
                                 Genre(ids: 4, name: "Action"),
                                 Genre(ids: 3, name: "Adventure")
-                              ], screenshots: [
-                                    Screenshot(ids: 1, image:
-                                                "https://media.rawg.io/media/"
-                                                +
-                                                "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
-                                    Screenshot(ids: 2, image:
-                                                "https://media.rawg.io/media/"
-                                                +
-                                                "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
-                                    Screenshot(ids: 3, image:
-                                                "https://media.rawg.io/media/"
-                                                +
-                                                "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg")
-                                ]
+                              ],
+                              screenshots: [
+                                Screenshot(ids: 1, image:
+                                            "https://media.rawg.io/media/"
+                                            +
+                                            "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
+                                Screenshot(ids: 2, image:
+                                            "https://media.rawg.io/media/"
+                                            +
+                                            "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"),
+                                Screenshot(ids: 3, image:
+                                            "https://media.rawg.io/media/"
+                                            +
+                                            "games/84d/84da2ac3fdfc6507807a1808595afb12.jpg")
+                              ]
     )
     #endif
 }

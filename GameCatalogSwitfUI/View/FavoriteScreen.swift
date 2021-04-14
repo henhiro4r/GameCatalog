@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct FavoriteScreen: View {
-//    @Environment(\.managedObjectContext) var moc
+    //    @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: FavoriteGame.entity(), sortDescriptors: []) var favorites: FetchedResults<FavoriteGame>
     
     var body: some View {
         NavigationView {
-            if  favorites.isEmpty {
+            if favorites.isEmpty {
                 EmptyState()
                     .navigationBarTitle("Favorite Games")
                     .toolbar {
